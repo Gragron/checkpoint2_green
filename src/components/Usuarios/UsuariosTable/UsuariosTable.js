@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { Table } from 'react-materialize'
 import { Card, Button }from "react-materialize";
 
+// import my action component
+import { fetchUsers } from '../../../state/actions/UsuariosActions';
+
 class UsuariosTable extends Component{
+
+    componentDidMount(){
+        this.props.fetchUsers();
+    }
 
     render(){
         return(
@@ -26,19 +34,13 @@ class UsuariosTable extends Component{
 
                             <tbody>
                                 <tr>
+                                    {
+                                        console.log(this.props.users)
+                                    }
                                     <td>Alvin</td>
                                     <td>Eclair</td>
                                     <td>$0.87</td>
-                                </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                    <td>$3.76</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                    <td>$7.00</td>
+                                    <td>$0.87</td>
                                 </tr>
                             </tbody>
                         </Table>
@@ -50,4 +52,15 @@ class UsuariosTable extends Component{
 }
 
 
-export default UsuariosTable;
+const mapDispatchToProps = {
+    fetchUsers,
+}
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(UsuariosTable);
