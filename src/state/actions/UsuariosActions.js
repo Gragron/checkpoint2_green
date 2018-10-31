@@ -6,9 +6,9 @@ export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
 const FetchUsers = () => {
     return async (dispatch) => {
         try {
-            const response = await axios.get("https://g4-ch2.herokuapp.com/api/usuarios/green");
+            const response = await axios.get("https://g4-ch2.herokuapp.com/api/usuarios/green");    
             console.log(response);
-            dispatch(SuccessFetchingUsers(response.data.data));
+            dispatch(SuccessFetchingUsers(response.data));
         } catch (error) {
             console.log(error);
         }
