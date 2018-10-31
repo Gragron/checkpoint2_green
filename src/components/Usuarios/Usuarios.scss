@@ -1,0 +1,20 @@
+.usuarios-container{
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .usuarios-card{
+        width: 60%;
+        min-width: 500px;
+        height: 60%;
+        min-height: 450px;
+        display: flex;
+        flex-direction: column;
+    }
+    .usuarios-title{
+        width: 60%;
+        min-width: 500px;
+    }
+}
