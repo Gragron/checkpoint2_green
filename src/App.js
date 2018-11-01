@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
 
-// Router
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 // store
 import store from './state/store/store';
 import { Provider } from 'react-redux';
 
+// Router
+import { BrowserRouter } from "react-router-dom";
 
 // Components
-import Usuarios from './components/Usuarios/Usuarios';
-import Dependientes from './components/Dependientes/Dependientes';
+import Navbar from "./components/Navbar/Navbar";
+import Main from "./components/Main/Main";
 
 class App extends Component {
   render() {
     return (
 
       <Provider store={store}>
-
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" render={()=> <Usuarios></Usuarios> }></Route>
-            <Route exact path="/dependiente" render={()=> <Dependientes></Dependientes> }></Route>
-          </Switch>
+          <div>
+            <Navbar></Navbar>
+            <Main></Main>
+          </div>
         </BrowserRouter>
-
       </Provider>
 
     );

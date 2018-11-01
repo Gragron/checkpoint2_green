@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import Menu from "../Navbar/Navbar";
 import UsuariosTable from './UsuariosTable/UsuariosTable';
 
-// 
 
 import './Usuarios.scss'
 
@@ -12,7 +10,6 @@ class Usuarios extends Component {
         return(
 
             <div>
-                <Menu></Menu>
                 <UsuariosTable></UsuariosTable>
             </div>
 

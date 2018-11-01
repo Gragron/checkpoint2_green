@@ -5,7 +5,7 @@ import { Table } from 'react-materialize'
 import { Card, Button, Icon }from "react-materialize";
 
 // import my action component
-import { fetchUsers } from '../../../state/actions/UsuariosActions';
+import { fetchUsers } from '../../../../state/actions/UsuariosActions';
 
 class UsuariosTable extends Component{
 
