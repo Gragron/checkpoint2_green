@@ -1,7 +1,13 @@
+/* Generals Tags */
+i { cursor: pointer; }
+
+/* Borders */
 .border-b { border-bottom:  2px solid black; }
 
+/* Margins */
 .m-20 { margin: 20px;}
 .mlr-15 { margin: 0 15px; }
 
+/* Paddings */
 .pb-5 { padding-bottom: 5px; }
 

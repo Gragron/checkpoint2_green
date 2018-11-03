@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
 
-export const AppReducer = combineReducers({
+// reducers
+import { UsuariosReducer } from './UsuariosReducer';
 
+export const AppReducer = combineReducers({
+    users: UsuariosReducer
 });

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Menu from "../Navbar/Navbar";
-
 
 class Dependientes extends Component {
 
@@ -8,7 +6,6 @@ class Dependientes extends Component {
         return(
 
             <div>
-                <Menu></Menu>
                 <h4 className="border-b m-20 pb-5"> Dependientes </h4>
             </div>
 
