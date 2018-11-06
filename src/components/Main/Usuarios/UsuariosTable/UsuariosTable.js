@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// Materialize
 import { Table } from 'react-materialize'
 import { Card, Button, Icon }from "react-materialize";
 
-// import my action component
+// Actions
 import { fetchUsers } from '../../../../state/actions/UsuariosActions';
+
+// Components
+import UsuariosModal from './UsuariosModal/UsuariosModal';
 
 class UsuariosTable extends Component{
 
@@ -17,6 +21,11 @@ class UsuariosTable extends Component{
 
         let usersList;
 
+        var flex = {
+            display: 'flex',
+            justifyContent: 'space-evenly'
+          };
+
         if (this.props.users.users.length){
             usersList = this.props.users.users.map(user => {
                             return (
@@ -25,10 +34,16 @@ class UsuariosTable extends Component{
                                     <td>{user.apellidos.paterno}</td>
                                     <td>{user.apellidos.materno}</td>
                                     <td>{user.edad}</td>
-                                    <td className='center-align'>
-                                        <Icon small className='mlr-15 green-text text-accent-4'>visibility</Icon>
+                                    <td style={flex}>
+
+                                        <Button className='btn-floating green accent-4'><Icon small className=''>visibility</Icon></Button>
+                                        <UsuariosModal user={user}></UsuariosModal>
+                                        <Button className='btn-floating green accent-4'><Icon small className=''>delete</Icon></Button>
+
+
+                                        {/* <Icon small className='mlr-15 green-text text-accent-4'>visibility</Icon>
                                         <Icon small className='mlr-15 green-text text-accent-4'>edit</Icon>
-                                        <Icon small className='mlr-15 green-text text-accent-4'>delete</Icon>
+                                        <Icon small className='mlr-15 green-text text-accent-4'>delete</Icon> */}
                                     </td>
                                 </tr>
                             )
