@@ -9,7 +9,7 @@ const FetchUsers = () => {
     return async (dispatch) => {
         try {
             const response = await axios.get("https://g4-ch2.herokuapp.com/api/usuarios/green");    
-            console.log(response);
+            // console.log(response);
             dispatch(SuccessFetchingUsers(response.data));
         } catch (error) {
             console.log(error);
@@ -20,11 +20,9 @@ const FetchUsers = () => {
 const PutUsers = (user,_id) => {
     return async (dispatch) => {
         try {
-            console.log(user);
-            console.log(_id);   
             const response = await axios.post(`https://g4-ch2.herokuapp.com/api/usuarios/green/${_id}`,user);
-            console.log(response);
-            dispatch();
+            // console.log(response);
+            dispatch(FetchUsers());
         } catch (error) {
             console.log(error);
         }
