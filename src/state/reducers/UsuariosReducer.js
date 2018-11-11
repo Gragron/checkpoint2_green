@@ -1,4 +1,4 @@
-import { FETCH_USERS_SUCCESS, } from './../actions/UsuariosActions';
+import { FETCH_USERS_SUCCESS, INSERT_NEW_USER} from './../actions/UsuariosActions';
 
 const initialState = {
     users: []
@@ -10,6 +10,11 @@ export const UsuariosReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: action.users
+            }
+        case INSERT_NEW_USER:
+            return {
+                ...state,
+                productos: [...state.users, action.payload]
             }
         default:
             return state;
