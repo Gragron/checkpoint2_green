@@ -7,6 +7,7 @@ import { Card, Button, Icon }from "react-materialize";
 
 // Actions
 import { fetchUsers } from '../../../../state/actions/UsuariosActions';
+import { deleteUsers } from '../../../../state/actions/UsuariosActions';
 
 // Components
 import UsuariosModal from './UsuariosModal/UsuariosModal';
@@ -17,8 +18,12 @@ class UsuariosTable extends Component{
         this.props.fetchUsers();
     }
 
+    deleteUsers = (id) => {
+        console.log(id);
+        this.props.deleteUsers(id);
+   }
+    
     render(){
-
         let usersList;
 
         var flex = {
@@ -38,7 +43,7 @@ class UsuariosTable extends Component{
 
                                         <Button className='btn-floating green accent-4'><Icon small className=''>visibility</Icon></Button>
                                         <UsuariosModal user={user}></UsuariosModal>
-                                        <Button className='btn-floating green accent-4'><Icon small className=''>delete</Icon></Button>
+                                        <Button onClick={() => this.deleteUsers(user._id)} className='btn-floating green accent-4'><Icon small className=''>delete</Icon></Button>
 
 
                                         {/* <Icon small className='mlr-15 green-text text-accent-4'>visibility</Icon>
@@ -60,7 +65,6 @@ class UsuariosTable extends Component{
                     </tr>
 
         }
-
 
         return(
             <div className="usuarios-container">
@@ -93,6 +97,7 @@ class UsuariosTable extends Component{
 
 const mapDispatchToProps = {
     fetchUsers,
+    deleteUsers,
 }
 
 const mapStateToProps = (state) => {

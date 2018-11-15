@@ -5,6 +5,8 @@ export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
 
 export const INSERT_NEW_USER = 'INSERT_NEW_USER';
 
+export const DELETE_USERS = 'DELETE_USERS';
+
 export const PUT_USER = "PUT_USER";
 
 const FetchUsers = () => {
@@ -27,7 +29,16 @@ export const InsertNewUser = user => async dispatch => {
         }
     )
 }
-   
+
+export const DeleteUsers = id => async dispatch => {
+    await axios.delete(`https://g4-ch2.herokuapp.com/api/usuarios/green/${id}`);
+
+    dispatch({
+         type: DELETE_USERS,
+         payload: id
+    })
+}
+
 const PutUsers = (user,_id) => {
     return async (dispatch) => {
         try {
@@ -48,4 +59,4 @@ const SuccessFetchingUsers = (users) => ({
 
 
 
-export { FetchUsers as fetchUsers, PutUsers as putUsers, InsertNewUser as insertNewUser };
+export { FetchUsers as fetchUsers, PutUsers as putUsers, InsertNewUser as insertNewUser, DeleteUsers as deleteUsers};
