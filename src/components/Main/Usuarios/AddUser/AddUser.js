@@ -55,7 +55,7 @@ class AddUser extends Component{
         const {error} = this.state;
         
         return(
-            <div class = "addUser">
+            <div className= "addUser">
                 <h1 className="AgregarUsuario-title">Agrega un Usuario</h1>
                     <form onSubmit={this.insertNewUser}>
                         <Row className= "AgregarUsuario-forms">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 // Materialize
 import { Table } from 'react-materialize'
@@ -19,7 +20,6 @@ class UsuariosTable extends Component{
     }
 
     deleteUsers = (id) => {
-        console.log(id);
         this.props.deleteUsers(id);
    }
     
@@ -41,14 +41,15 @@ class UsuariosTable extends Component{
                                     <td>{user.edad}</td>
                                     <td style={flex}>
 
-                                        <Button className='btn-floating green accent-4'><Icon small className=''>visibility</Icon></Button>
+                                        <Link to={`/ShowUser/${user._id}`}>
+                                            <Button className='btn-floating green accent-4' title='Ver Usuario'>
+                                                <Icon small className=''>visibility</Icon>   
+                                            </Button>
+                                        </Link>
                                         <UsuariosModal user={user}></UsuariosModal>
-                                        <Button onClick={() => this.deleteUsers(user._id)} className='btn-floating green accent-4'><Icon small className=''>delete</Icon></Button>
 
+                                        <Button onClick={() => this.deleteUsers(user._id)} className='btn-floating green accent-4' title='Eliminar Usuario'><Icon small>delete</Icon></Button>
 
-                                        {/* <Icon small className='mlr-15 green-text text-accent-4'>visibility</Icon>
-                                        <Icon small className='mlr-15 green-text text-accent-4'>edit</Icon>
-                                        <Icon small className='mlr-15 green-text text-accent-4'>delete</Icon> */}
                                     </td>
                                 </tr>
                             )
@@ -70,7 +71,7 @@ class UsuariosTable extends Component{
             <div className="usuarios-container">
                     <h4 className="usuarios-title border-b m-20 pb-5"> 
                         Usuarios
-                        <Button floating className='green accent-4 mlr-15' waves='light' icon='add' />
+                        <Button floating className='green accent-4 mlr-15' waves='light' icon='add' title='Agregar Usuario'/>
                     </h4>
                     <Card className="usuarios-card">
                         <Table bordered responsive>
