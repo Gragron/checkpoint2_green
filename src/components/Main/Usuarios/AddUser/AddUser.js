@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 // Redux
 import {connect} from 'react-redux';
 import { insertNewUser } from '../../../../state/actions/UsuariosActions';
-import { Row, Input, Button, Toast } from "react-materialize";
+import { Row, Input, Button } from "react-materialize";
+import { Link } from 'react-router-dom';
+
 
 import './AddUser.scss';
 
@@ -49,6 +51,7 @@ class AddUser extends Component{
           this.props.insertNewUser(User);
           
           
+          
 
     }
     render(){
@@ -68,8 +71,10 @@ class AddUser extends Component{
                     </form>
 
                     {error ?
-                         <Toast> <Button ></Button></Toast>
+                         
+                          <div>No puedes agregar usuarios vacios intentalo de nuevo</div>
                           :""
+                          
                    }
              </div>
         )
