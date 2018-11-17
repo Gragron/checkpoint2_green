@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+
+import { Link } from 'react-router-dom';
+
 
 // Materialize
 import { Table } from 'react-materialize'
@@ -71,7 +73,8 @@ class UsuariosTable extends Component{
             <div className="usuarios-container">
                     <h4 className="usuarios-title border-b m-20 pb-5"> 
                         Usuarios
-                        <Button floating className='green accent-4 mlr-15' waves='light' icon='add' title='Agregar Usuario'/>
+
+                        <Link to="/AddUser"><Button floating className='green accent-4 mlr-15' waves='light' icon='add'></Button></Link> 
                     </h4>
                     <Card className="usuarios-card">
                         <Table bordered responsive>
