@@ -5,6 +5,7 @@ const initialState = {
 }
 
 export const UsuariosReducer = (state = initialState, action) => {
+    console.log('action',action)
     switch (action.type){
         case FETCH_USERS_SUCCESS:
             return {
@@ -24,7 +25,8 @@ export const UsuariosReducer = (state = initialState, action) => {
         case GET_USER:
             return {
                 ...state,
-                users: state.users
+                users: action.users,
+                type: action.type
             }
         default:
             return state;

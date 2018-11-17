@@ -70,7 +70,10 @@ const GetUser = _id => {
         console.log(_id);
         try {
             const response = await axios.get(`https://g4-ch2.herokuapp.com/api/usuarios/green/${_id}`);
-            // console.log(response)
+            dispatch({
+                type: FETCH_USERS_SUCCESS,
+                users: response.data[0]
+            });
         } catch (error) {
             console.log(error);
         }

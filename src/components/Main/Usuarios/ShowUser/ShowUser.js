@@ -22,14 +22,16 @@ class ShowUser extends Component{
                     title="Informacion de Usuario"
                 >
                     
-                    {/* {console.log('show user', this.props.users.users )} */}
+                    {console.log('user id', this.props.users.users._id )}
+                    {console.log('user nombre', this.props.users.users.nombre )}
+                    {console.log('user apellidos', this.props.users.users.apellidos )}
             
                     {
-                        this.props.users.users.map(user => {
-                            return (
-                                <p>{user.nombre}</p>
-                            )
-                        })
+                        // this.props.users.map(user => {
+                        //     return (
+                        //         <p>{user.apellidos}</p>
+                        //     )
+                        // })
                     }
 
                 </Card>
@@ -44,6 +46,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = (state) => {
     return {
+        ...state,
         users: state.users
     }
 }
