@@ -47,7 +47,7 @@ class UsuariosModal extends Component {
             <div>
                 <Modal
                     header='Actualizacion usuario'
-                    trigger={<Button className='btn-floating green accent-4'><Icon small className=''>edit</Icon></Button>}
+                    trigger={<Button className='btn-floating green accent-4' title='Editar Usuario'><Icon small className=''>edit</Icon></Button>}
                     actions={
                                 <div>
                                     <Button onClick={() => this.handleClickPutUser() } modal="close" waves="light" className="green accent-4">Actualizar</Button>

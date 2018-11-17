@@ -2,13 +2,14 @@ import axios from 'axios';
 
 export const FETCH_USERS = "FETCH_USERS";
 export const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
-
 export const INSERT_NEW_USER = 'INSERT_NEW_USER';
-
 export const DELETE_USERS = 'DELETE_USERS';
-
 export const PUT_USER = "PUT_USER";
+export const GET_USER = "GET_USER";
 
+/**
+ *  get all User
+ */
 const FetchUsers = () => {
     return async (dispatch) => {
         try {
@@ -20,8 +21,12 @@ const FetchUsers = () => {
         }
     }
 }
+
+/**
+ * Insert new User
+ * @param {*} user [Object]
+ */
 export const InsertNewUser = user => async dispatch => {
-    console.log(user);
     const respuesta = await axios.post(`https://g4-ch2.herokuapp.com/api/usuarios/green/`, user);
     dispatch({
          type: INSERT_NEW_USER,
@@ -30,6 +35,10 @@ export const InsertNewUser = user => async dispatch => {
     )
 }
 
+/**
+ * Delete Users
+ * @param {*} id [String]
+ */
 export const DeleteUsers = id => async dispatch => {
     await axios.delete(`https://g4-ch2.herokuapp.com/api/usuarios/green/${id}`);
 
@@ -39,6 +48,11 @@ export const DeleteUsers = id => async dispatch => {
     })
 }
 
+/**
+ * Update data User
+ * @param {*} user [Object]
+ * @param {*} _id [String]
+ */
 const PutUsers = (user,_id) => {
     return async (dispatch) => {
         try {
@@ -51,6 +65,20 @@ const PutUsers = (user,_id) => {
     }
 }
 
+const GetUser = _id => {
+    return async (dispatch) => {
+        console.log(_id);
+        try {
+            const response = await axios.get(`https://g4-ch2.herokuapp.com/api/usuarios/green/${_id}`);
+            dispatch({
+                type: FETCH_USERS_SUCCESS,
+                users: response.data[0]
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 
 const SuccessFetchingUsers = (users) => ({
     type: FETCH_USERS_SUCCESS,
@@ -58,5 +86,10 @@ const SuccessFetchingUsers = (users) => ({
 })
 
 
-
-export { FetchUsers as fetchUsers, PutUsers as putUsers, InsertNewUser as insertNewUser, DeleteUsers as deleteUsers};
+export { 
+    FetchUsers as fetchUsers, 
+    PutUsers as putUsers, 
+    InsertNewUser as insertNewUser, 
+    DeleteUsers as deleteUsers , 
+    GetUser as getUser, 
+};
